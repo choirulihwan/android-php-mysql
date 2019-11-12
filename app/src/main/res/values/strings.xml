@@ -2,4 +2,9 @@
     <string name="app_name">Android-PHP-Mysql</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_register">Register</string>
+    <string name="go_to_register">Go to register</string>
+    <string name="go_to_json_data">Go to Json Data</string>
+    <string name="get_json">Get Json</string>
+    <string name="parse_json">Parse Json</string>
+    <string name="textview" />
 </resources>

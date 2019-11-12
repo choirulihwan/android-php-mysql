@@ -24,5 +24,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToJsonData(View view){
+        Intent intent = new Intent(this, GetUser.class);
+        startActivity(intent);
+    }
+
 
 }
