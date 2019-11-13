@@ -1,5 +1,6 @@
 package com.example.android_php_mysql;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,9 @@ import java.net.URL;
 
 public class GetUser extends AppCompatActivity {
 
+    String str_json;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +32,29 @@ public class GetUser extends AppCompatActivity {
         btnGetJson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getJson();
+                getJson(v);
+            }
+        });
+
+        Button btnParse = findViewById(R.id.btnParse);
+        btnParse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                parseJson(v);
             }
         });
     }
 
-    public void getJson(){
+    public void getJson(View view){
+
         new GetUserBackground().execute();
     }
 
-    public void parseJson(View view){
 
+    public void parseJson(View view){
+        Intent intent = new Intent(GetUser.this, DisplayListView.class);
+        intent.putExtra("json_data", str_json);
+        startActivity(intent);
     }
 
     class GetUserBackground extends AsyncTask<Void, Void, String> {
@@ -86,6 +102,8 @@ public class GetUser extends AppCompatActivity {
         protected void onPostExecute(String result) {
             TextView textView = (TextView) findViewById(R.id.txtJson);
             textView.setText(result);
+            str_json = result;
+            
         }
 
         @Override
