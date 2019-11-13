@@ -45,7 +45,7 @@ public class ContactAdapter extends ArrayAdapter {
             contactHolder.txt_name = row.findViewById(R.id.txt_name);
             contactHolder.txt_email = row.findViewById(R.id.txt_email);
             contactHolder.txt_contact = row.findViewById(R.id.txt_contact);
-            contactHolder.txt_password = row.findViewById(R.id.txt_password);
+            //contactHolder.txt_password = row.findViewById(R.id.txt_password);
             row.setTag(contactHolder);
         } else {
             contactHolder = (ContactHolder) row.getTag();
@@ -55,7 +55,7 @@ public class ContactAdapter extends ArrayAdapter {
         contactHolder.txt_name.setText(contact.getName());
         contactHolder.txt_email.setText(contact.getEmail());
         contactHolder.txt_contact.setText(contact.getContact());
-        contactHolder.txt_password.setText(contact.getPassword());
+        //contactHolder.txt_password.setText(contact.getPassword());
 
         return row;
     }
